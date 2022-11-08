@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration>
+
+<configuration>
+    <import class="ch.qos.logback.core.ConsoleAppender"/>
+    <import class="ch.qos.logback.core.FileAppender"/>
+    <import class="ch.qos.logback.core.hook.DefaultShutdownHook"/>
+    <import class="ch.qos.logback.core.status.OnConsoleStatusListener"/>
+    <import class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"/>
+
+    <timestamp key="dateFilePatter" datePattern="YYYY-MM-dd__HH_mm_ss"/>
+
+    <!-- Same as <configuration debug="true"> -->
+    <statusListener class="OnConsoleStatusListener"/>
+
+    <!-- Installing a JVM shutdown hook is a convenient way for shutting down logback
+     and releasing associated resources. -->
+    <shutdownHook class="DefaultShutdownHook"/>
+
+    <appender name="CONSOLE" class="ConsoleAppender">
+        <encoder class="PatternLayoutEncoder">
+            <!-- @formatter:off -->
+            <pattern>%date{YYYY-MM-dd HH:mm:ss.SSS} %highlight(%-5level) --- [%15thread] %cyan(%logger{20}) %boldCyan(%20.-20method) : %msg%n</pattern>
+            <!-- @formatter:on -->
+        </encoder>
+    </appender>
+
+    <appender name="FILE-TIMESTAMP" class="FileAppender">
+        <file>./log/${dateFilePatter}-output.log</file>
+        <!-- Create a new log everytime application is started. -->
+        <append>false</append>
+
+        <encoder class="PatternLayoutEncoder">
+            <pattern>%date{YYYY-MM-dd HH:mm:ss.SSS} %-5level --- [%15thread] %logger{20} %20.-20method : %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <root level="debug">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE-TIMESTAMP"/>
+    </root>
+</configuration>
