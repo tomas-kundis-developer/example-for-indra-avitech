@@ -5,10 +5,21 @@
     <groupId>org.tomo</groupId>
     <artifactId>example-for-indra-avitech</artifactId>
     <version>1.0-SNAPSHOT</version>
+
     <packaging>jar</packaging>
 
     <name>example-for-indra-avitech</name>
-    <url>http://maven.apache.org</url>
+    <description>Example project for interview with Indra Avitech s.r.o. company.</description>
+    <url>https://github.com/tomas-kundis-developer/example-for-indra-avitech</url>
+    <organization>
+        <name>Tomáš Kundis - SW Developer</name>
+    </organization>
+    <developers>
+        <developer>
+            <name>Tomáš Kundis</name>
+            <timezone>Europe/Bratislava</timezone>
+        </developer>
+    </developers>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
