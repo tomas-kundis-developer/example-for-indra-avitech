@@ -5,6 +5,15 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+### Environment variables ###
+
+/src/main/java/resources/.env
+/src/test/java/resources/.env
+
+### Embedded databases ###
+
+/db/
+
 ### STS ###
 .apt_generated
 .classpath
