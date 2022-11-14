@@ -1,0 +1,5 @@
+-- DROP SCHEMA IF EXISTS indra_fifo_schema;
+-- CREATE SCHEMA indra_fifo_schema;
+
+DROP TABLE IF EXISTS susers;
+CREATE TABLE susers (id IDENTITY(1001), guid UUID NOT NULL, NAME VARCHAR(1000));
